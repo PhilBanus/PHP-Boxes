@@ -1,0 +1,156 @@
+@charset "utf-8";
+        
+
+ 
+
+body{
+    position: absolute; 
+    width: 100%; 
+    height: 100%; 
+    font-size: 100%; 
+    overflow: hidden;
+    background: rgba(0,0,0,0.8);
+    padding: 0%; 
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+form{ 
+   font-size: 80%;
+    padding: 2% 5%; 
+    background: rgba(0,0,0,0.1)
+    
+
+}
+
+input{
+    border-radius: 2px;
+    border: none;
+    padding-left: 2%;
+    
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: pink;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: pink;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: pink;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: pink;
+}
+
+.btn{
+    border-radius: 2px; 
+    border: none;
+    background: rgba(64,171,43,1.00); 
+    padding: 1% 5%; 
+    color: white;
+    margin-top: 1%;
+    
+}
+
+.btn:hover{
+    background: green; 
+    cursor: pointer;
+}
+
+
+        .tableWrap {
+            position: absolute; 
+            width: 90%; 
+            height: 90%; 
+            left: 5%; 
+            top: 5%; 
+        }
+        
+
+
+
+        
+        td:hover{
+            background: yellow; 
+            cursor: pointer;
+        }
+        
+     
+        
+        .winner{
+            background: white !important;
+            color: black !important;
+
+        }
+        
+        .selected{
+            background: red !important;
+        }
+        
+        .path{
+            background: transparent;
+            background-repeat: no-repeat !important;
+            background-size: 100% 100% ;
+        }
+        
+        
+        .popup, .selector{
+            position: absolute;
+            background: white; 
+            color: black;
+            width: 40%; 
+            left: 30%; 
+            top: 5%;
+            z-index: 100; 
+            box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.4);
+            border-radius: 10px;
+            overflow: hidden;
+            
+        }
+        
+        .header, legend{
+            background: royalblue; 
+            padding: 1%;
+            color: white;
+        }
+
+    .body{
+    font-size: 80%;
+        padding: 1%;
+    }
+       
+        
+        .greyout{
+            position: absolute;
+            width: 100%; 
+            height: 100%; 
+            left: 0; 
+            top: 0; 
+            z-index: 99;
+            background: rgba(0,0,0,0.4)
+        }
+        
+        
+        
+        .down{
+            background: url(../SVG/down.svg) no-repeat;
+        }
+        
+        .up{
+            background: url(../SVG/up.svg) no-repeat;
+        }
+    
+        
+        .left{
+            background: url(../SVG/left.svg) no-repeat;
+        }
+        
+        .right{
+            background: url(../SVG/right.svg) no-repeat;
+        }
+
+.small{
+    font-size: 70%;
+}
+        
