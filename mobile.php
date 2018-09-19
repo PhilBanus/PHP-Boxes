@@ -40,7 +40,6 @@ if($width > 100){   $height = $cellWidth*$yValue*2; $width = 100; $left=0;  }
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta http-equiv="cache-control" content="max-age=0" />
   <meta http-equiv="cache-control" content="no-cache" />
   <meta http-equiv="expires" content="0" />
@@ -215,7 +214,7 @@ if($width > 100){   $height = $cellWidth*$yValue*2; $width = 100; $left=0;  }
         <h3>Instructions</h3>
         
         <ol style="text-align: left">
-            <li>Choose an across value (x)</li>
+            <li>Choose an accross value (x)</li>
             <li>Choose a down value (y)</li>
             <li>Select Map mode (if you want)</li>
             <li>Try to find the winning square in one guess!</li>
