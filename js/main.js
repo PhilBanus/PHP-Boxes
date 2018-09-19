@@ -19,7 +19,7 @@ function youWin() {
 
     $('.greyout').fadeIn(2000);
 
-    $('.popup').delay(2000).fadeIn(2000);
+    $('.popup').delay(3000).fadeIn(2000);
     
     //Define header title
     $(".header").html( "WOW! You Won!");
@@ -114,7 +114,8 @@ function youLose(x) {
     })
 
     //fade in the popup and greyed out background
-    $('.greyout, .popup').fadeIn(2000); 
+    $('.popup').delay(2000).fadeIn(2000); 
+    $('.greyout').fadeIn(2000); 
     
     //define header text
     $(".header").html( "Sorry not quite!");

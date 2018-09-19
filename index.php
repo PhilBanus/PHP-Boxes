@@ -199,11 +199,12 @@ if($width > 100){   $height = $cellWidth*$yValue*2; $width = 100; $left=0;  }
     
             <label for="X">Please choose a number of boxes going across:</label>
             <br>
-            <input type="number" name="X" class="form-control" min="1" placeholder="7" required>
+            <!-- set to maximum 100 for load speed and rendering -->
+            <input type="number" name="X" class="form-control" min="1"  max"100" placeholder="7" required>
             <br>
             <label for="Y">Please choose a number of boxes going down:</label>
             <br>
-            <input type="number" name="Y" class="form-control" min="1" placeholder="5" required> 
+            <input type="number" name="Y" class="form-control" min="1" max"100" placeholder="5" required> 
             <br>
             <label for="map">Map? <input type="checkbox" name="Map"></label>
             <br>
@@ -309,11 +310,11 @@ if($width > 100){   $height = $cellWidth*$yValue*2; $width = 100; $left=0;  }
     
             <label for="X">Please choose a number of boxes going across:</label>
             <br>
-            <input type="number" name="X" value="<?php echo $xValue ?>" class="form-control" min="1" required>
+            <input type="number" name="X" value="<?php echo $xValue ?>" class="form-control" min="1"  max"100" required>
             <br>
             <label for="Y">Please choose a number of boxes going down:</label>
             <br>
-            <input type="number" name="Y" value="<?php echo $yValue ?>" class="form-control" min="1" required> 
+            <input type="number" name="Y" value="<?php echo $yValue ?>" class="form-control" min="1"  max"100" required> 
             <br>
             <label for="map">Map? <input type="checkbox" <?php  if($map === "on"){ echo "checked"; } ?> name="Map" ></label>
             <br>
