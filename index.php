@@ -91,6 +91,8 @@ if($width > 100){   $height = $cellWidth*$yValue*2; $width = 100; $left=0;  }
         
     </style>
     <link href="css/main.css" rel="stylesheet" type="text/css">
+    <link href="css/fireworks.css" rel="stylesheet" type="text/css">
+    
 </head>
 
 <body class="bg-dark text-white text-center" >
@@ -221,7 +223,15 @@ if($width > 100){   $height = $cellWidth*$yValue*2; $width = 100; $left=0;  }
         
         </div>
     
+    
     <div class="greyout"></div>
+  
+     <div class="pyro">
+  <div class="before"></div>
+  <div class="after"></div>
+
+    
+    </div>
     
     
     

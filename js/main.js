@@ -1,6 +1,6 @@
 
         
-        $('.greyout').hide(); 
+        $('.greyout, .pyro').hide(); 
         $('.popup').hide(); 
 
         
@@ -8,7 +8,8 @@
          
         
          
-         $('.greyout, .popup').fadeIn(2000); 
+         $('.greyout, .pyro').fadeIn(2000); 
+         $('.popup').delay(2000).fadeIn(2000);
       
          $(".header").html( "WOW! You Won!");
          
@@ -96,7 +97,7 @@
          
 }
         
-        
-       
+
+  
     
          

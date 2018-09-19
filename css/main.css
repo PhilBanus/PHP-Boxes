@@ -113,7 +113,10 @@ input{
             background: royalblue; 
             padding: 1%;
             color: white;
+            width: 100%;
+            text-align: center;
         }
+
 
     .body{
     font-size: 80%;
@@ -153,4 +156,9 @@ input{
 .small{
     font-size: 70%;
 }
+
+
+
+
+
         
