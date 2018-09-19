@@ -55,7 +55,24 @@ if($width > 100){   $height = $cellWidth*$yValue*2; $width = 100; $left=0;  }
 
     
 <title>Grid Game</title>
+    <!-- mobile redirect --> 
     
+    
+    <script type="text/javascript">
+<!--
+if (screen.width <= 699) {
+document.location = "mobile.php";
+}
+//-->
+</script>
+ 
+    <script language=javascript>
+<!--
+if ((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i))) {
+   location.replace("http://www.banuscv.co.uk/PHP Grid Game/mobile.php");
+}
+-->
+</script>
 
     <!--- linked css --- variable css is inline --->
     <link href="css/main.css" rel="stylesheet" type="text/css">
@@ -219,7 +236,7 @@ if($width > 100){   $height = $cellWidth*$yValue*2; $width = 100; $left=0;  }
             <li>Choose a down value (y)</li>
             <li>Select Map mode (if you want)</li>
             <li>Try to find the winning square in one guess!</li>
-        
+    
         </ol>
 
     </div>

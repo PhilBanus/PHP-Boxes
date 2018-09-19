@@ -19,16 +19,19 @@ $cellHeight =  floor (100/$yValue);
 
 //make squares by changing the height or width of the table ie. 10*40/2 = 200
 //set width default
- $width = $cellHeight*$xValue/2; 
+ $width = $cellHeight*$xValue*1.5; 
 //margin left calculated by 100% - width / 2 (100 -50%) = (50%)/2 = 25% either side 
- $left = (100 - $width)/2;
+ 
  $height = 100;
     
 //make an exception when calculated width is greater than 100 vary the height instead. 
-if($width > 100){   $height = $cellWidth*$yValue*2; $width = 100; $left=0;  }
+if($width > 100){   $height = $cellWidth*$yValue/1.5; $width = 100; $left=0;  }
         
 // this should create nice even boxes most of the time. there are exceptions when one value is massivly greater than the other (100+)
 
+
+$left = (100 - $width)/2;
+ $top =  (100 - $height)/2;
     ?>
 
 
@@ -38,12 +41,16 @@ if($width > 100){   $height = $cellWidth*$yValue*2; $width = 100; $left=0;  }
 <head>
   <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 
   <meta http-equiv="cache-control" content="max-age=0" />
   <meta http-equiv="cache-control" content="no-cache" />
   <meta http-equiv="expires" content="0" />
   <meta http-equiv="pragma" content="no-cache" />
+    
+    
+    
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
  
@@ -57,7 +64,7 @@ if($width > 100){   $height = $cellWidth*$yValue*2; $width = 100; $left=0;  }
     
 
     <!--- linked css --- variable css is inline --->
-    <link href="css/main.css" rel="stylesheet" type="text/css">
+    <link href="css/mobile.css" rel="stylesheet" type="text/css">
     <link href="css/fireworks.css" rel="stylesheet" type="text/css">
     
     
@@ -80,8 +87,9 @@ if($width > 100){   $height = $cellWidth*$yValue*2; $width = 100; $left=0;  }
         
         table, #map{
             width: <?php echo $width ?>% !important; 
-            height: <?php echo $height ?>%;
+            height: <?php echo $height ?>% !important;
             border-spacing: 1%;
+            top: <?php echo $top ?>%;
             left: <?php echo $left ?>%;
             border-collapse: collapse;
             transform-origin: top center;
@@ -121,12 +129,15 @@ if($width > 100){   $height = $cellWidth*$yValue*2; $width = 100; $left=0;  }
         
          table{
             width: <?php echo $width ?>% !important; 
-            height: <?php echo $height ?>%;
+            height: <?php echo $height ?>% !important;
             border-spacing: 1%;
+            top: <?php echo $top ?>%;
             left: <?php echo $left ?>%;
             border-collapse: separate;
             transform-origin: top center;
             position: absolute;
+             
+             background: white;
         
          
            
