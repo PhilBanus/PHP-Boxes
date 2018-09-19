@@ -26,7 +26,7 @@ function youWin() {
 
     //if 1x1 game then tell the user that was a bit easy....
     if(xValue === 1 && yValue === 1) { 
-                $(".body").html( "Congratulations, you have found the winning box! <br> <span class='small'>(although a 1x1 grid is a bit easy don't you think?)</span>" ); 
+                $(".body").html( "Congratulations, you have found the winning Square!<br> <span class='small'>(although a 1x1 grid is a bit easy don't you think?)</span>" ); 
     } 
                 // if greater than 1x1 then show normal you won text
                 else {
@@ -120,7 +120,7 @@ function youLose(x) {
     //define header text
     $(".header").html( "Sorry not quite!");
     //define body text
-    $(".body").html( "You clicked box " + clickedRow +" down and " + clickedCell + " across. <br> The winning box was " + winnerRow + " down and " + winnerCell +" across<br> You were " + cellsAway + " cells away" );
+    $(".body").html( "You clicked Square " + clickedRow +" down and " + clickedCell + " across. <br> The winning Square was " + winnerRow + " down and " + winnerCell +" across<br> You were " + cellsAway + " Square(s) away" );
 
 }
 
