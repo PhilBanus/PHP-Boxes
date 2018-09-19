@@ -1,104 +1,128 @@
 
-        
-        $('.greyout').hide(); 
-        $('.popup').hide(); 
+// hide on click elements
+$('.greyout').hide(); 
+$('.popup').hide(); 
 
-        
-     function youWin(x) {
-         
-        $('.pyro, .before, .after').css('opacity', '1');
-         
-         $('.greyout').fadeIn(2000);
-         
-         $('.popup').delay(2000).fadeIn(2000);
-      
-         $(".header").html( "WOW! You Won!");
-         
-      
-         
-          if(xValue === 1 && yValue === 1) { 
-             $(".body").html( "Congratulations, you have found the winning box! <br> <span class='small'>(although a 1x1 grid is a bit easy don't you think?)</span>" ); 
-         } else {
-              $(".body").html( "Congratulations, you have found the winning box! <br> " );
-         }
-         
-     }
-        
-        
-     function youLose(x) {
-         
-         
-        var clickedRow =  x.parentNode.rowIndex + 1;
-        var clickedCell =  x.cellIndex +1;
-         
-        var winnerCell =  document.getElementById('winner').cellIndex + 1;
-        var winnerRow = document.getElementById('winner').parentNode.rowIndex + 1;
-         
-        
-         var differenceDown = clickedRow - winnerRow;
-         var differenceAccross = clickedCell - winnerCell;
-         var cellsAway = Math.abs(differenceAccross)+Math.abs(differenceDown);
 
-         
-         x.className += " selected";
-         
-         
-        $('td').each(function () {
+// when document is loaded fade it in
+$(document).ready(function() {
+    $('body').fadeIn(1000);
+});
+
+
+
+// win scenario
+function youWin() {
+    
+    //display hiden elements
+    $('.pyro, .before, .after').css('opacity', '1');
+
+    $('.greyout').fadeIn(2000);
+
+    $('.popup').delay(2000).fadeIn(2000);
+    
+    //Define header title
+    $(".header").html( "WOW! You Won!");
+
+    //if 1x1 game then tell the user that was a bit easy....
+    if(xValue === 1 && yValue === 1) { 
+                $(".body").html( "Congratulations, you have found the winning box! <br> <span class='small'>(although a 1x1 grid is a bit easy don't you think?)</span>" ); 
+    } 
+                // if greater than 1x1 then show normal you won text
+                else {
+                    $(".body").html( "Congratulations, you have found the winning box! <br> " );
+                }
+
+}
+
+
+
+// you loose function
+function youLose(x) {
+
+    // calulating path to winner
+    //find clicked row index
+    var clickedRow =  x.parentNode.rowIndex + 1;
+    //find clicked cell index
+    var clickedCell =  x.cellIndex +1;
+    // find winning cell index
+    var winnerCell =  document.getElementById('winner').cellIndex + 1;
+    //find winning row index
+    var winnerRow = document.getElementById('winner').parentNode.rowIndex + 1;
+    
+    //calculate difference in rows
+    var differenceDown = clickedRow - winnerRow;
+    //calcualte cell difference
+    var differenceAccross = clickedCell - winnerCell;
+    // work out how many cells away (math.abs for positive)
+    var cellsAway = Math.abs(differenceAccross)+Math.abs(differenceDown);
+    
+    
+    // now for the css bit
+    //change clicked cell to red by adding selected class
+    x.className += " selected";
+
+    //cycle through each cell
+    $('td').each(function () {
+        //find cell indexes
         var rowIndex = this.parentNode.rowIndex + 1;
         var cellIndex = this.cellIndex + 1;
-          
-      
-                if (clickedCell === cellIndex && rowIndex <= winnerRow && rowIndex >= clickedRow) {
 
-                     $(this).addClass("path down");
-                }       
+        //find cells going down from clicked cell that are inbetween clicked and winning (find rows first then only select cells with matching cell index)
+        if (clickedCell === cellIndex && rowIndex <= winnerRow && rowIndex >= clickedRow) {
+            //add arrow
+            $(this).addClass("path down");
+        }       
         
-             if (clickedCell === cellIndex && rowIndex >= winnerRow && rowIndex <= clickedRow) {
+        //find cells going up from clicked cell that are inbetween clicked and winning (find rows first then only select cells with matching cell index)
+        if (clickedCell === cellIndex && rowIndex >= winnerRow && rowIndex <= clickedRow) {
+            //add arrow
+            $(this).addClass("path up");
 
-                     $(this).addClass("path up");
+        }     
 
-                }     
-            
-            
-            
-            
+
+
+
+        //find cells in the rows heading towards the winning cell (right) only select those inbetween winning and clicked cell indexes
+        if (winnerRow === rowIndex && cellIndex <= winnerCell && cellIndex >= clickedCell) {
+            //add arrow
+            $(this).addClass("path right");
+
+        }  
         
-              if (winnerRow === rowIndex && cellIndex <= winnerCell && cellIndex >= clickedCell) {
+         //find cells in the rows heading towards the winning cell (left) only select those inbetween winning and clicked cell indexes
+         if (winnerRow === rowIndex && cellIndex >= winnerCell && cellIndex <= clickedCell) {
 
-                     $(this).addClass("path right");
+             $(this).addClass("path left");
 
-                }  
-            
-             if (winnerRow === rowIndex && cellIndex >= winnerCell && cellIndex <= clickedCell) {
+        }  
 
-                     $(this).addClass("path left");
+        //highlight the winning cell 
+        if (winnerRow === rowIndex && cellIndex === winnerCell) {
 
-                }  
-            
-            
-              if (winnerRow === rowIndex && cellIndex === winnerCell) {
+            $(this).addClass("winner");
+            $(this).html("")
 
-                     $(this).addClass("winner");
-                  $(this).html("")
+        }  
 
-                }  
-            
-            
-            
-            
-            
-        
-     })
-         
-          $('.greyout, .popup').fadeIn(2000); 
-      
-         $(".header").html( "Sorry not quite!");
-         
-         $(".body").html( "you clicked Cell " + clickedRow +" down and " + clickedCell + " across. <br> the winning Cell was, " + winnerRow + " down and " + winnerCell +" across<br> row Difference: " + Math.abs(differenceDown) + "<br> cell Difference: " + Math.abs(differenceAccross) + "<br> you were " + cellsAway + " cells away" );
-         
-}
-        
 
-  
+
+
+
+
+    })
+
+    //fade in the popup and greyed out background
+    $('.greyout, .popup').fadeIn(2000); 
     
-         
+    //define header text
+    $(".header").html( "Sorry not quite!");
+    //define body text
+    $(".body").html( "You clicked box " + clickedRow +" down and " + clickedCell + " across. <br> The winning box was " + winnerRow + " down and " + winnerCell +" across<br> You were " + cellsAway + " cells away" );
+
+}
+
+
+
+

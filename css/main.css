@@ -1,8 +1,8 @@
 @charset "utf-8";
-        
 
- 
 
+
+/* position body */
 body{
     position: absolute; 
     width: 100%; 
@@ -16,10 +16,10 @@ body{
 }
 
 form{ 
-   font-size: 80%;
+    font-size: 80%;
     padding: 2% 5%; 
     background: rgba(0,0,0,0.1)
-    
+
 
 }
 
@@ -27,22 +27,25 @@ input{
     border-radius: 2px;
     border: none;
     padding-left: 2%;
-    
+
 }
 
+/*modify placeholder text */
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  color: pink;
+    color: pink;
 }
 ::-moz-placeholder { /* Firefox 19+ */
-  color: pink;
+    color: pink;
 }
 :-ms-input-placeholder { /* IE 10+ */
-  color: pink;
+    color: pink;
 }
 :-moz-placeholder { /* Firefox 18- */
-  color: pink;
+    color: pink;    
 }
 
+
+/* modify button */
 .btn{
     border-radius: 2px; 
     border: none;
@@ -50,7 +53,7 @@ input{
     padding: 1% 5%; 
     color: white;
     margin-top: 1%;
-    
+
 }
 
 .btn:hover{
@@ -59,100 +62,104 @@ input{
 }
 
 
-        .tableWrap {
-            position: absolute; 
-            width: 90%; 
-            height: 90%; 
-            left: 5%; 
-            top: 5%; 
-        }
-        
+/* set game board area */
+.tableWrap {
+    position: absolute; 
+    width: 90%; 
+    height: 90%; 
+    left: 5%; 
+    top: 5%; 
+}
+
+
+/* show different color to user when they hover over a square */
+td:hover{
+    background: yellow; 
+    cursor: pointer;
+}
+
+
+/* highlight winner */
+.winner{
+    background: green !important;
+  
+
+}
+
+/* loser gets highlighted red */
+.selected{
+    background: red !important;
+}
 
 
 
-        
-        td:hover{
-            background: yellow; 
-            cursor: pointer;
-        }
-        
-     
-        
-        .winner{
-            background: white !important;
-            color: black !important;
+/* define inital selection box and pop up box display */
+.popup, .selector{
+    position: absolute;
+    background: white; 
+    color: black;
+    width: 40%; 
+    left: 30%; 
+    top: 5%;
+    z-index: 100; 
+    box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.4);
+    border-radius: 10px;
+    overflow: hidden;
 
-        }
-        
-        .selected{
-            background: red !important;
-        }
-        
-        .path{
-            background: transparent;
-            background-repeat: no-repeat !important;
-            background-size: 100% 100% ;
-        }
-        
-        
-        .popup, .selector{
-            position: absolute;
-            background: white; 
-            color: black;
-            width: 40%; 
-            left: 30%; 
-            top: 5%;
-            z-index: 100; 
-            box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.4);
-            border-radius: 10px;
-            overflow: hidden;
-            
-        }
-        
-        .header, legend{
-            background: royalblue; 
-            padding: 1%;
-            color: white;
-            width: 100%;
-            text-align: center;
-        }
+}
 
+/* define pop up and form headers */
+.header, legend{
+    background: royalblue; 
+    padding: 1%;
+    color: white;
+    width: 100%;
+    text-align: center;
+}
 
-    .body{
+/* define body of popup font size and padding */
+.body{
     font-size: 80%;
-        padding: 1%;
-    }
-       
-        
-        .greyout{
-            position: absolute;
-            width: 100%; 
-            height: 100%; 
-            left: 0; 
-            top: 0; 
-            z-index: 99;
-            background: rgba(0,0,0,0.4)
-        }
-        
-        
-        
-        .down{
-            background: url(../SVG/down.svg) no-repeat;
-        }
-        
-        .up{
-            background: url(../SVG/up.svg) no-repeat;
-        }
-    
-        
-        .left{
-            background: url(../SVG/left.svg) no-repeat;
-        }
-        
-        .right{
-            background: url(../SVG/right.svg) no-repeat;
-        }
+    padding: 1%;
+}
 
+/* fade out the game board a little */
+.greyout{
+    position: absolute;
+    width: 100%; 
+    height: 100%; 
+    left: 0; 
+    top: 0; 
+    z-index: 99;
+    background: rgba(0,0,0,0.4)
+}
+
+/* arrow background */
+.path{
+background: transparent;
+background-repeat: no-repeat !important;
+background-size: 100% 100% ;
+}
+
+/* define arrows */
+.down{
+    background: url(../SVG/down.svg) no-repeat;
+}
+
+.up{
+    background: url(../SVG/up.svg) no-repeat;
+}
+
+
+.left{
+    background: url(../SVG/left.svg) no-repeat;
+}
+
+.right{
+    background: url(../SVG/right.svg) no-repeat;
+}
+
+/* shrink text */
 .small{
     font-size: 70%;
 }
@@ -161,4 +168,3 @@ input{
 
 
 
-        
