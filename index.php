@@ -24,7 +24,6 @@ $cellHeight =  floor (100/$yValue);
  $left = (100 - $width)/2;
  $height = 100;
     
-
 //make an exception when calculated width is greater than 100 vary the height instead. 
 if($width > 100){   $height = $cellWidth*$yValue*2; $width = 100; $left=0;  }
         
