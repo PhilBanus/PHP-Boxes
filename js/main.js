@@ -1,14 +1,15 @@
 
         
-        $('.greyout, .pyro').hide(); 
+        $('.greyout').hide(); 
         $('.popup').hide(); 
 
         
      function youWin(x) {
          
-        
+        $('.pyro, .before, .after').css('opacity', '1');
          
-         $('.greyout, .pyro').fadeIn(2000); 
+         $('.greyout').fadeIn(2000);
+         
          $('.popup').delay(2000).fadeIn(2000);
       
          $(".header").html( "WOW! You Won!");

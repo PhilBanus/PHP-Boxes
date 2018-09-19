@@ -71,7 +71,12 @@ $box-shadow2: ();
 .pyro{
     width: 100%; 
     height: 100%; 
-    background: black;
+    background: transparent;
+    left: 0px;
+    top: 0px;
+    margin: 0px;
+    padding: 0px;
+    opacity: 0;
 }
 
 .pyro > .before, .pyro > .after {
@@ -80,6 +85,7 @@ $box-shadow2: ();
   height: 5px;
   border-radius: 50%;
    box-shadow: $box-shadow2;
+    opacity: 0;
   @include animation((1s bang ease-out infinite backwards, 1s gravity ease-in infinite backwards, 5s position linear infinite backwards));
 }
     

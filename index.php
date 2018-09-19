@@ -4,6 +4,8 @@ $xValue = $_GET['X'];
 
 $yValue = $_GET['Y'];
 
+$map = $_GET['Map'];
+
 
 $randomNumber = rand(1,$xValue*$yValue);
     
@@ -46,6 +48,8 @@ if($width > 100){   $height = $cellWidth*$yValue*2; $width = 100; $left=0;  }
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
 
     
+
+    
 <title>Grid Game</title>
     
 
@@ -57,22 +61,35 @@ if($width > 100){   $height = $cellWidth*$yValue*2; $width = 100; $left=0;  }
         
 
         
+        <?php if($map === "on"){ ?>
         
-      table{
+      table, #map{
             width: <?php echo $width ?>% !important; 
           height: <?php echo $height ?>%;
            border-spacing: 1%;
           left: <?php echo $left ?>%;
-    border-collapse: separate;
+    border-collapse: collapse;
  transform-origin: top center;
             position: absolute;
+        
+         
            
                 
         }
         
-        tr{
+        #map{
+            z-index: 1
+        }
+        
+        table{
+            z-index: 2
+        }
+        
+         tr{
             height: <?php echo $cellHeight ?>% !important; 
             width: 100% !important;
+           background: transparent !important;
+
             
         }
         
@@ -81,12 +98,64 @@ if($width > 100){   $height = $cellWidth*$yValue*2; $width = 100; $left=0;  }
              height: <?php echo $cellHeight ?>% !important; 
             width: <?php echo $cellWidth ?>%; 
             position: relative;
-            background: royalblue;
-            border: 5px;
+            background: transparent;
+            border: 2px green solid !important;
         }
         
+       <?php } else { ?>   
+        
+         table{
+            width: <?php echo $width ?>% !important; 
+          height: <?php echo $height ?>%;
+           border-spacing: 1%;
+          left: <?php echo $left ?>%;
+    border-collapse: separate;
+ transform-origin: top center;
+            position: absolute;
+        
+         
+           
+                
+        }
+        
+        #map{
+            z-index: 1
+        }
+        
+        table{
+            z-index: 2
+        }
+        
+         tr{
+            height: <?php echo $cellHeight ?>% !important; 
+            width: 100% !important;
+          
+
+            
+        }
+        
+        
+        td{
+             height: <?php echo $cellHeight ?>% !important; 
+            width: <?php echo $cellWidth ?>%; 
+            position: relative;
+             background: royalblue;
+            
+        }
+        
+        
+        <?php } ?>
+        
+   
+        
        
-     
+        
+        /* display winner for testing 
+        #winner{
+            background: rgba(0,0,0,0.1) !important
+        }
+       
+     */
     
         
     </style>
@@ -118,7 +187,9 @@ if($width > 100){   $height = $cellWidth*$yValue*2; $width = 100; $left=0;  }
         <br>
         <input type="number" name="Y" class="form-control" min="1" placeholder="5" required> 
         <br>
-    
+            <label for="map">Map? <input type="checkbox" name="Map"></label>
+        <br>
+            
         <input type="submit" class="btn" value="Play!">
         
     </form>
@@ -138,7 +209,7 @@ if($width > 100){   $height = $cellWidth*$yValue*2; $width = 100; $left=0;  }
     
     ?>
     
-    <div class="tableWrap">
+    <div class="tableWrap" id="tableWrap">
     
     <table id="example">
  
@@ -188,7 +259,7 @@ if($width > 100){   $height = $cellWidth*$yValue*2; $width = 100; $left=0;  }
     </table>
     
     
-    
+    <div id="map"></div>
     
     </div>
     
@@ -216,7 +287,8 @@ if($width > 100){   $height = $cellWidth*$yValue*2; $width = 100; $left=0;  }
         <br>
         <input type="number" name="Y" value="<?php echo $yValue ?>" class="form-control" min="1" required> 
         <br>
-    
+        <label for="map">Map? <input type="checkbox" <?php  if($map === "on"){ echo "checked"; } ?> name="Map" ></label>
+        <br>
         <input type="submit" class="btn" value="Play Again!">
         
     </form>
@@ -240,17 +312,37 @@ if($width > 100){   $height = $cellWidth*$yValue*2; $width = 100; $left=0;  }
         var xValue = <?php echo $xValue ?>; 
         var yValue = <?php echo $yValue ?>; 
     
+        
+        <?php 
+    if($map === "on"){ ?> 
+          
+        function myMap() {
+    var mapCanvas = document.getElementById("map");
+    var mapOptions = {
+        center: new google.maps.LatLng(51.555775, -1.779718), 
+        zoom: 10,
+        disableDefaultUI: true
+    };
+    var map = new google.maps.Map(mapCanvas, mapOptions);
+}
+        
+        <?php  } ?>
+        
+      
     
     </script>
     
     
     
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUqxDbiAMFT5WOdQ1VV8cbVDg3A3wS40o&callback=myMap"></script>
     
     
     <script type="text/javascript" src="js/main.js"></script>
 
 	 <script src="http://code.jquery.com/jquery-latest.min.js" crossorigin="anonymous"></script>
 	
+    
+  
     
 </body>
 </html>
