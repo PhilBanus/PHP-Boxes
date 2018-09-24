@@ -2,7 +2,7 @@
 
 <h4>PHP Grid Game </h4>
 
-<p> There are currently two modes, when loading index.php, you will be prompted to play either Sandbox mode or Campaign mode.</p>
+<p> There are currently two modes, when loading index.php, you will be prompted to play either Sandbox <strong>(Original Task)</strong> mode or Campaign mode.</p>
 
 <p> The game idea is simple, you have a grid of squares to choose from. When the user clicks on a square they will then be told if they won or lost. </p>
 
