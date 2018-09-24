@@ -1,6 +1,8 @@
 @charset "utf-8";
 
-
+html{
+    color: white;
+}
 
 /* position body */
 body{
@@ -16,9 +18,12 @@ body{
 }
 
 form{ 
-    font-size: 80%;
+    font-size: 100%;
+    width: 80%;
+    margin-left: 5%;
     padding: 2% 5%; 
-    background: rgba(0,0,0,0.1)
+    border: lightgray solid 2px;
+    border-radius: 10px;
 
 
 }
@@ -27,7 +32,13 @@ input{
     border-radius: 2px;
     border: none;
     padding-left: 2%;
+    background: rgba(0,0,0,0.10)
 
+}
+
+
+h5{
+    background: royal
 }
 
 /*modify placeholder text */
@@ -53,12 +64,22 @@ input{
     padding: 1% 5%; 
     color: white;
     margin-top: 1%;
+    text-decoration: none;
+    
 
+}
+
+.btn-red{
+    background: rgba(209,31,34,1.00) !important;
 }
 
 .btn:hover{
     background: green; 
     cursor: pointer;
+}
+
+.btn-red:hover{
+    background: rgba(150,20,25,1.00) !important;
 }
 
 
@@ -105,6 +126,7 @@ td:hover{
     box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.4);
     border-radius: 10px;
     overflow: hidden;
+    padding-bottom: 2%;
 
 }
 
@@ -165,6 +187,16 @@ background-size: 100% 100% ;
 }
 
 
+.float-top-right{
+    position: absolute; 
+    z-index: 2;
+    top: 1%; 
+    right: 1%; 
+    padding: 0.5%; 
+    background: royalblue; 
+    border-radius: 20px;
+    font-size: 70%
+}
 
 
 
