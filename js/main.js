@@ -1,11 +1,10 @@
-
 // hide on click elements
-$('.greyout').hide(); 
-$('.popup').hide(); 
+$('.greyout').hide();
+$('.popup').hide();
 
 
 // when document is loaded fade it in
-$(document).ready(function() {
+$(document).ready(function () {
     $('body').fadeIn(1000);
 });
 
@@ -13,25 +12,25 @@ $(document).ready(function() {
 
 // win scenario
 function youWin() {
-    
+
     //display hiden elements
     $('.pyro, .before, .after').css('opacity', '1');
 
     $('.greyout').fadeIn(2000);
 
     $('.popup').delay(3000).fadeIn(2000);
-    
+
     //Define header title
-    $(".header").html( "WOW! You Won!");
+    $(".header").html("WOW! You Won!");
 
     //if 1x1 game then tell the user that was a bit easy....
-    if(xValue === 1 && yValue === 1) { 
-                $(".body").html( "Congratulations, you have found the winning Square!<br> <span class='small'>(although a 1x1 grid is a bit easy don't you think?)</span>" ); 
-    } 
-                // if greater than 1x1 then show normal you won text
-                else {
-                    $(".body").html( "Congratulations, you have found the winning box! <br> " );
-                }
+    if (xValue === 1 && yValue === 1) {
+        $(".body").html("Congratulations, you have found the winning Square!<br> <span class='small'>(although a 1x1 grid is a bit easy don't you think?)</span>");
+    }
+    // if greater than 1x1 then show normal you won text
+    else {
+        $(".body").html("Congratulations, you have found the winning box! <br> ");
+    }
 
 }
 
@@ -42,22 +41,22 @@ function youLose(x) {
 
     // calulating path to winner
     //find clicked row index
-    var clickedRow =  x.parentNode.rowIndex + 1;
+    var clickedRow = x.parentNode.rowIndex + 1;
     //find clicked cell index
-    var clickedCell =  x.cellIndex +1;
+    var clickedCell = x.cellIndex + 1;
     // find winning cell index
-    var winnerCell =  document.getElementById('winner').cellIndex + 1;
+    var winnerCell = document.getElementById('winner').cellIndex + 1;
     //find winning row index
     var winnerRow = document.getElementById('winner').parentNode.rowIndex + 1;
-    
+
     //calculate difference in rows
     var differenceDown = clickedRow - winnerRow;
     //calcualte cell difference
     var differenceAccross = clickedCell - winnerCell;
     // work out how many cells away (math.abs for positive)
-    var cellsAway = Math.abs(differenceAccross)+Math.abs(differenceDown);
-    
-    
+    var cellsAway = Math.abs(differenceAccross) + Math.abs(differenceDown);
+
+
     // now for the css bit
     //change clicked cell to red by adding selected class
     x.className += " selected";
@@ -72,14 +71,14 @@ function youLose(x) {
         if (clickedCell === cellIndex && rowIndex <= winnerRow && rowIndex >= clickedRow) {
             //add arrow
             $(this).addClass("path down");
-        }       
-        
+        }
+
         //find cells going up from clicked cell that are inbetween clicked and winning (find rows first then only select cells with matching cell index)
         if (clickedCell === cellIndex && rowIndex >= winnerRow && rowIndex <= clickedRow) {
             //add arrow
             $(this).addClass("path up");
 
-        }     
+        }
 
 
 
@@ -89,14 +88,14 @@ function youLose(x) {
             //add arrow
             $(this).addClass("path right");
 
-        }  
-        
-         //find cells in the rows heading towards the winning cell (left) only select those inbetween winning and clicked cell indexes
-         if (winnerRow === rowIndex && cellIndex >= winnerCell && cellIndex <= clickedCell) {
+        }
 
-             $(this).addClass("path left");
+        //find cells in the rows heading towards the winning cell (left) only select those inbetween winning and clicked cell indexes
+        if (winnerRow === rowIndex && cellIndex >= winnerCell && cellIndex <= clickedCell) {
 
-        }  
+            $(this).addClass("path left");
+
+        }
 
         //highlight the winning cell 
         if (winnerRow === rowIndex && cellIndex === winnerCell) {
@@ -104,7 +103,7 @@ function youLose(x) {
             $(this).addClass("winner");
             $(this).html("")
 
-        }  
+        }
 
 
 
@@ -114,16 +113,12 @@ function youLose(x) {
     })
 
     //fade in the popup and greyed out background
-    $('.popup').delay(2000).fadeIn(2000); 
-    $('.greyout').fadeIn(2000); 
-    
+    $('.popup').delay(2000).fadeIn(2000);
+    $('.greyout').fadeIn(2000);
+
     //define header text
-    $(".header").html( "Sorry not quite!");
+    $(".header").html("Sorry not quite!");
     //define body text
-    $(".body").html( "You clicked Square " + clickedRow +" down and " + clickedCell + " across. <br> The winning Square was " + winnerRow + " down and " + winnerCell +" across<br> You were " + cellsAway + " Square(s) away" );
+    $(".body").html("You clicked Square " + clickedRow + " down and " + clickedCell + " across. <br> The winning Square was " + winnerRow + " down and " + winnerCell + " across<br> You were " + cellsAway + " Square(s) away");
 
 }
-
-
-
-

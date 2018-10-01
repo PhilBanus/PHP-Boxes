@@ -1,214 +1,171 @@
 @charset "utf-8";
-
-html{
+html {
     color: white;
-      padding: 0; 
-    margin: 0; 
+    padding: 0;
+    margin: 0;
 }
-
 /* position body */
-body{
-    position: absolute; 
-    width: 100%; 
-    height: 100%; 
-    font-size: 100%; 
+body {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    font-size: 100%;
     overflow: hidden;
     background: rgba(0,0,0,0.8);
-    padding: 0%; 
+    padding: 0%;
     text-align: center;
     font-family: 'Poppins', sans-serif;
 }
-
-form{ 
+form {
     font-size: 100%;
     width: 80%;
     margin-left: 5%;
-    padding: 2% 5%; 
+    padding: 2% 5%;
     border: lightgray solid 2px;
     border-radius: 10px;
-
-
 }
-
-input{
+input {
     border-radius: 2px;
     border: none;
     padding-left: 2%;
     background: rgba(0,0,0,0.10)
-
 }
 
 
 
 /*modify placeholder text */
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-    color: pink;
+ color: pink;
 }
 ::-moz-placeholder { /* Firefox 19+ */
-    color: pink;
+ color: pink;
 }
 :-ms-input-placeholder { /* IE 10+ */
-    color: pink;
+ color: pink;
 }
 :-moz-placeholder { /* Firefox 18- */
-    color: pink;    
+ color: pink;
 }
-
-
 /* modify button */
-.btn{
-    border-radius: 2px; 
+.btn {
+    border-radius: 2px;
     border: none;
-    background: rgba(64,171,43,1.00); 
-    padding: 1% 5%; 
+    background: rgba(64,171,43,1.00);
+    padding: 1% 5%;
     color: white;
     margin-top: 1%;
     text-decoration: none;
-    
-
 }
-
-.btn-red{
+.btn-red {
     background: rgba(209,31,34,1.00) !important;
 }
-
-.btn:hover{
-    background: green; 
+.btn:hover {
+    background: green;
     cursor: pointer;
 }
-
-.btn-red:hover{
+.btn-red:hover {
     background: rgba(150,20,25,1.00) !important;
 }
-
-
 /* set game board area */
 .tableWrap {
-    position: absolute; 
-    width: 90%; 
-    height: 90%; 
-    left: 5%; 
-    top: 5%; 
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    left: 5%;
+    top: 5%;
 }
-
-
 /* show different color to user when they hover over a square */
-td:hover{
-    background: yellow; 
+td:hover {
+    background: yellow;
     cursor: pointer;
 }
-
-
 /* highlight winner */
-.winner{
+.winner {
     background: green !important;
-  
-
 }
-
 /* loser gets highlighted red */
-.selected{
+.selected {
     background: red !important;
 }
-
-
-
 /* define inital selection box and pop up box display */
-.popup, .selector{
+.popup, .selector {
     position: absolute;
-    background: white; 
+    background: white;
     color: black;
-    width: 40%; 
-    left: 30%; 
+    width: 40%;
+    left: 30%;
     top: 5%;
-    z-index: 100; 
+    z-index: 100;
     box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.4);
     border-radius: 10px;
     overflow: hidden;
     padding-bottom: 2%;
-
 }
-
 /* define pop up and form headers */
-.header, legend{
-    background: royalblue; 
+.header, legend {
+    background: royalblue;
     padding: 1%;
     color: white;
     width: 100%;
     text-align: center;
 }
-
 /* define body of popup font size and padding */
-.body{
+.body {
     font-size: 80%;
     padding: 1%;
 }
-
 /* fade out the game board a little */
-.greyout{
+.greyout {
     position: absolute;
-    width: 100%; 
-    height: 100%; 
-    left: 0; 
-    top: 0; 
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
     z-index: 99;
     background: rgba(0,0,0,0.4)
 }
-
 /* arrow background */
-.path{
-background: transparent;
-background-repeat: no-repeat !important;
-background-size: 100% 100% ;
+.path {
+    background: transparent;
+    background-repeat: no-repeat !important;
+    background-size: 100% 100%;
 }
-
 /* define arrows */
-.down{
+.down {
     background: url(../SVG/down.svg) no-repeat;
 }
-
-.up{
+.up {
     background: url(../SVG/up.svg) no-repeat;
 }
-
-
-.left{
+.left {
     background: url(../SVG/left.svg) no-repeat;
 }
-
-.right{
+.right {
     background: url(../SVG/right.svg) no-repeat;
 }
-
 /* shrink text */
-.small{
+.small {
     font-size: 70%;
 }
-
-
-
-.float-top-right{
-    position: absolute; 
+.float-top-right {
+    position: absolute;
     z-index: 2;
-     top: -1%; 
-    right: 1%; 
-    padding: 0.5%; 
-    background: royalblue; 
+    top: -1%;
+    right: 1%;
+    padding: 0.5%;
+    background: royalblue;
     border-radius: 0 0 20px 20px;
     font-size: 70%
 }
-
-h5{
+h5 {
     position: absolute;
     z-index: 2;
-    width: 30%; 
-    top: -1%; 
-    left: 0%; 
-    padding: 0.5%; 
+    width: 30%;
+    top: -1%;
+    left: 0%;
+    padding: 0.5%;
     margin: 0;
-    background: royalblue; 
+    background: royalblue;
     border-radius: 0 0 20px 20px;
     font-size: 90%
-    
 }
-
